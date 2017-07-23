@@ -18,15 +18,17 @@ CFLAGS += -I ./includes
 
 all: $(NAME)
 
-$(NAME): $(SRCS)
-		@gcc $(CFLAGS) -c $(SRCS)
-		@mkdir -p objs
-		@mv $(FILENAMES:.c=.o) objs/
+$(NAME): $(OBJS)
 		@ar rc $(NAME) $(OBJS)
 		@echo "Libft Compilation Complete"
 
+objs/%.o: srcs/%.c | objs
+	@gcc $(CFLAGS) -c $^ -o $@
+
+objs:
+	@mkdir objs
+
 clean:
-		@rm -f $(OBJS)
 		@rm -rf objs
 		@echo "Libft Objects Files Removed"
 
