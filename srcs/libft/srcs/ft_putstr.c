@@ -6,7 +6,7 @@
 /*   By: dnelson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 10:22:43 by dnelson           #+#    #+#             */
-/*   Updated: 2016/11/30 18:52:45 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/23 13:13:52 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,5 @@ void	ft_putstr(char const *s)
 {
 	if (!s)
 		return ;
-	while (*s)
-		write(1, s++, 1);
+	write(1, s, ft_strlen(s));
 }
