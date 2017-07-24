@@ -6,7 +6,7 @@
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/22 15:46:10 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/22 17:37:40 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/24 14:37:25 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,4 @@
 # include "libft.h"
 # include <stdarg.h>
 
-typedef	struct	s_flags
-{
-	char		c;
-	char		
+#endif
