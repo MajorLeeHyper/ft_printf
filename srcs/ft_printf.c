@@ -6,11 +6,21 @@
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/14 14:50:37 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/23 17:51:54 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/24 14:29:58 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+** temp
+*/
+
+int		ft_next_arg(va_list ap, char **str)
+{
+	return (1);
+}
+
 
 int		ft_printf(const char *format, ...)
 {
@@ -37,5 +47,5 @@ int		ft_printf(const char *format, ...)
 			return (0);
 	}
 	va_end(ap);
-	return (/*length of string?*/);
+	return (1);
 }
