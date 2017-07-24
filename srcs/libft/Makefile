@@ -8,7 +8,7 @@ FILENAMES += ft_strchr.c ft_strrchr.c ft_strnstr.c ft_digits.c ft_memalloc.c ft_
 FILENAMES += ft_striter.c ft_striteri.c ft_strmap.c ft_strmapi.c ft_strequ.c ft_strnequ.c ft_strjoin.c ft_strsub.c
 FILENAMES += ft_strtrim.c ft_strsplit.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_lstnew.c
 FILENAMES += ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c ft_lstmap.c ft_strrev.c ft_isprime.c ft_putstrarr.c
-FILENAMES += ft_swap.c get_next_line.c ft_getnbr.c ft_strlenc.c ft_absolute_v.c
+FILENAMES += ft_swap.c get_next_line.c ft_getnbr.c ft_strlenc.c ft_absolute_v.c ft_strchr_count.c
 
 SRCS = $(addprefix srcs/, $(FILENAMES))
 OBJS = $(addprefix objs/, $(FILENAMES:.c=.o))

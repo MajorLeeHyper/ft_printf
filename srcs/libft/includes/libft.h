@@ -6,7 +6,7 @@
 /*   By: dnelson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 11:33:53 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/02 00:50:47 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/23 17:39:53 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,5 @@ int					get_next_line(const int fd, char **line);
 int					ft_getnbr(char *str);
 size_t				ft_strlenc(const char *str, char c);
 long				ft_absolute_v(long num);
+int					ft_strchr_count(char *str, char c);
 #endif

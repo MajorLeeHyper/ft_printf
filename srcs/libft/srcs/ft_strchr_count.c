@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_getnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strchr_count.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/03 10:05:18 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/23 17:56:31 by dnelson          ###   ########.fr       */
+/*   Created: 2017/07/23 17:37:42 by dnelson           #+#    #+#             */
+/*   Updated: 2017/07/23 17:39:02 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_getnbr(char *str)
+int		ft_strchr_count(char *str, char c)
 {
-	int		nbr;
+	int		count;
 
-	nbr = 0;
-	if (str != NULL && str[0] == '-')
-		return (-ft_getnbr(&str[1]));
-	while ((*str >= '0') && (*str <= '9'))
+	count = 0;
+	while (*str)
 	{
-		nbr = (nbr * 10) + (*str - '0');
+		if (*str == c)
+			count++;
 		str++;
 	}
-	return (nbr);
+	return (count);
 }
