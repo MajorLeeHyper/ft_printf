@@ -6,7 +6,7 @@
 /*   By: dnelson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 11:33:53 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/23 17:39:53 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/25 12:51:48 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,6 @@ int					ft_getnbr(char *str);
 size_t				ft_strlenc(const char *str, char c);
 long				ft_absolute_v(long num);
 int					ft_strchr_count(char *str, char c);
+void				ft_strchr_replace(char *str, char c, size_t start,
+		size_t end);
 #endif
