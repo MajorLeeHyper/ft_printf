@@ -6,7 +6,7 @@
 #    By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/24 13:21:38 by dnelson           #+#    #+#              #
-#    Updated: 2017/07/24 14:31:08 by dnelson          ###   ########.fr        #
+#    Updated: 2017/07/25 13:19:47 by dnelson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,7 +79,9 @@ LIBFT = ft_strlen.c \
 		ft_getnbr.c \
 		ft_strlenc.c \
 		ft_absolute_v.c \
-		ft_strchr_count.c
+		ft_strchr_count.c \
+		ft_strchr_replace.c \
+		ft_compate_int.c
 
 SRCS = ft_printf.c \
 

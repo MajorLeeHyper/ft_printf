@@ -68,7 +68,8 @@ FILENAMES = ft_strlen.c \
 			ft_strlenc.c \
 			ft_absolute_v.c \
 			ft_strchr_count.c \
-			ft_strchr_replace.c
+			ft_strchr_replace.c \
+			ft_compare_int.c
 
 SRCS = $(addprefix srcs/, $(FILENAMES))
 OBJS = $(addprefix objs/, $(FILENAMES:.c=.o))
