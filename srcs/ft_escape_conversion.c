@@ -6,7 +6,7 @@
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/25 22:04:10 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/25 22:10:10 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/26 15:29:52 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,13 @@ size_t	ft_print_width_escape(char *value, t_bday *flags)
 	len = ft_compare_int(flags->width, ft_strlen(value)) - ft_strlen(value);
 	if (len == 0)
 		return (0);
+	pad = ft_strnew(len);
 	if (flags->zero == 1 && flags->minus == 0)
-	{
-		pad = ft_strnew(len);
-		ft_strchar_replace(pad, '0', 0, len);
-		count = write(1, pad, len);
-		free(pad);
-	}
+		ft_strchr_replace(pad, '0', 0, len);
 	else
-	{
-		pad = ft_strnew(len);
-		ft_strchar_replace(pad, ' ', 0, len);
-		count = write(1, pad, len);
-		free(pad);
-	}
+		ft_strchr_replace(pad, ' ', 0, len);
+	count = write(1, pad, len);
+	free(pad);
 	return (count);
 }
 
@@ -61,7 +54,7 @@ size_t	ft_convert_escape(t_bday *flags, va_list *ap)
 	size_t	count;
 	char	*escape;
 
-	(void)vars;
+	(void)ap;
 	count = 0;
 	escape = "%";
 	count += ft_print_flag_escape(escape, flags);

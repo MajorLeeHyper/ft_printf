@@ -6,7 +6,7 @@
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/26 11:00:48 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/26 11:27:00 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/26 15:38:55 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ size_t	ft_convert_int(t_bday *flags, va_list *ap)
 	count = 0;
 	num = va_arg(*ap, intmax_t);
 	num = ft_int_len(num, flags);
-	num = ft_negative(num, flags);
+	num = ft_negative_num(num, flags);
 	value = pf_itoa_base(num, "0123456789", 10);
 	ft_precision_int_value(&value, flags);
-	count += ft_print_flag(value, flag);
+	count += ft_print_flag(value, flags);
 	if (value != NULL)
 		free(value);
 	return (count);
@@ -42,7 +42,7 @@ size_t	ft_convert_uint(t_bday *flags, va_list *ap)
 	num = ft_uint_len(num, flags);
 	value = pf_itoa_base(num, "0123456789", 10);
 	ft_precision_int_value(&value, flags);
-	count += ft_prit_flag(value, flags);
+	count += ft_print_flag(value, flags);
 	if (value != NULL)
 		free(value);
 	return (count);
@@ -69,7 +69,7 @@ size_t	ft_convert_octal(t_bday *flags, va_list *ap)
 	}
 	value = pf_itoa_base(num, "01234567", 8);
 	ft_precision_int_value(&value, flags);
-	count = ft_print_flag(value, flag);
+	count = ft_print_flag(value, flags);
 	if (value != NULL)
 		free(value);
 	return (count);

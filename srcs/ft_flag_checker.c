@@ -6,7 +6,7 @@
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/25 13:23:57 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/25 13:39:45 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/26 15:31:10 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ int		ft_close_flag(const char *format, t_bday *flags, size_t index)
 	{
 		if (ft_flag_char(format[index]))
 		{
-			flag->close = index;
-			flag->type = format[index];
+			flags->close = index;
+			flags->type = format[index];
 			return (0);
 		}
 		if (ft_false_flag(format[index]))
 		{
-			flag->close = index;
-			flag->unterminated_char = format[index];
+			flags->close = index;
+			flags->unterminated_char = format[index];
 			return (1);
 		}
 		index++;

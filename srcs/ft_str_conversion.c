@@ -6,7 +6,7 @@
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/26 11:31:26 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/26 11:46:25 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/26 15:52:58 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_precision_text_value(char *str, t_bday *flags)
 	int		len;
 	char	*precision_value;
 
-	len = ft_compare_int(ft_stlen(str), flags->precision);
+	len = ft_compare_int(ft_strlen(str), flags->precision);
 	precision_value = ft_strsub(str, 0, len);
 	return (precision_value);
 }
@@ -34,20 +34,13 @@ size_t	ft_print_width_string(char *str, t_bday *flags)
 		len = ft_compare_int(flags->width, ft_strlen(str)) - ft_strlen(str);
 	if (len == 0)
 		return (0);
+	pad = ft_strnew(len);
 	if (flags->zero == 1 && flags->minus == 0)
-	{
-		pad = ft_strnew(len);
-		ft_strchar_replace(pad, '0', 0, len);
-		count = write(1, pad, len);
-		free(pad);
-	}
+		ft_strchr_replace(pad, '0', 0, len);
 	else
-	{
-		pad = ft_strnew(len);
-		ft_stchar_replace(pad, ' ', 0, len);
-		count = write(1, pad, len);
-		free(pad);
-	}
+		ft_strchr_replace(pad, ' ', 0, len);
+	count = write(1, pad, len);
+	free(pad);
 	return (count);
 }
 
@@ -65,7 +58,7 @@ size_t	ft_print_flag_string(char *str, t_bday *flags)
 	}
 	else
 	{
-		count += ft_print_width_string(str, flag);
+		count += ft_print_width_string(str, flags);
 		count += write(1, str, ft_strlen(str));
 	}
 	return (count);

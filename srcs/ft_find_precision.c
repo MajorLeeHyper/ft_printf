@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_negative.c                                      :+:      :+:    :+:   */
+/*   ft_find_precision.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/26 10:48:27 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/26 15:35:14 by dnelson          ###   ########.fr       */
+/*   Created: 2017/07/25 21:05:20 by dnelson           #+#    #+#             */
+/*   Updated: 2017/07/25 21:06:45 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-intmax_t	ft_negative_num(intmax_t num, t_bday *flags)
+int		ft_find_precision(const char *format, t_bday *flags)
 {
-	if (num < 0)
-	{
-		num = -num;
-		flags->negative = 1;
-	}
-	return (num);
-}
+	size_t	index;
 
-intmax_t	ft_negative_width(intmax_t num, t_bday *flags)
-{
-	if (num < 0)
+	index = flags->open;
+	while (index < flags->close)
 	{
-		num = -num;
-		flags->minus = 1;
+		if (format[index] == '.')
+		{
+			flags->precision_index = index;
+			flags->precision_found = 1;
+			return (1);
+		}
+		index++;
 	}
-	return (num);
+	return (0);
 }

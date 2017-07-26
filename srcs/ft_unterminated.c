@@ -6,7 +6,7 @@
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/25 12:12:14 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/25 12:34:13 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/26 15:54:14 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ int		ft_force_close(const char *format, t_bday *flags)
 		return (2);
 	if (ft_skip_flag(format, flags) == 1)
 		return (3);
-	if (flag->close == 0)
+	if (flags->close == 0)
 	{
 		while (format[i])
 			i++;
-		flag->close = i;
+		flags->close = i;
 	}
 	return (0);
 }

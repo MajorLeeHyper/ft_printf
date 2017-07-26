@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_negative.c                                      :+:      :+:    :+:   */
+/*   ft_print_width_only.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/26 10:48:27 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/26 15:35:14 by dnelson          ###   ########.fr       */
+/*   Created: 2017/07/25 21:42:18 by dnelson           #+#    #+#             */
+/*   Updated: 2017/07/25 21:45:24 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-intmax_t	ft_negative_num(intmax_t num, t_bday *flags)
+size_t	ft_print_width_only(t_bday *flags)
 {
-	if (num < 0)
-	{
-		num = -num;
-		flags->negative = 1;
-	}
-	return (num);
-}
+	size_t	count;
+	char	*pad;
 
-intmax_t	ft_negative_width(intmax_t num, t_bday *flags)
-{
-	if (num < 0)
+	count = 0;
+	if (flags->zero == 1)
 	{
-		num = -num;
-		flags->minus = 1;
+		pad = ft_strnew(flags->width);
+		ft_strchr_replace(pad, '0', 0, flags->width);
+		count = write(1, pad, flags->width);
+		free(pad);
 	}
-	return (num);
+	else
+	{
+		pad = ft_strnew(flags->width);
+		ft_strchr_replace(pad, ' ', 0, flags->width);
+		count = write(1, pad, flags->width);
+		free(pad);
+	}
+	return (count);
 }

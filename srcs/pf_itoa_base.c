@@ -6,13 +6,13 @@
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/25 22:20:34 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/26 10:28:48 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/26 14:22:44 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int		ft_intlen_base(uintmax_t num, size_t base)
+static int	ft_intlen_base(uintmax_t num, size_t base)
 {
 	int		len;
 
@@ -27,7 +27,7 @@ static int		ft_intlen_base(uintmax_t num, size_t base)
 	return (len);
 }
 
-char	*pf_itoa_base(uintmax_t num, char *base_chars, size_t base)
+char		*pf_itoa_base(uintmax_t num, char *base_chars, size_t base)
 {
 	char	*str;
 	int		len;

@@ -6,7 +6,7 @@
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/14 14:50:37 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/25 11:29:35 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/26 15:24:11 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void		ft_initialize_identifier(t_convert *identifier)
 {
 	identifier['%'] = &ft_convert_escape;
-	identifier['s'] = &ft_convert_str;
-	identifier['S'] = &ft_convert_wstr;
+	identifier['s'] = &ft_convert_string;
+	identifier['S'] = &ft_convert_wstring;
 	identifier['c'] = &ft_convert_char;
 	identifier['C'] = &ft_convert_char;
 	identifier['i'] = &ft_convert_int;
@@ -28,8 +28,8 @@ void		ft_initialize_identifier(t_convert *identifier)
 	identifier['U'] = &ft_convert_ulong;
 	identifier['o'] = &ft_convert_octal;
 	identifier['O'] = &ft_convert_olong;
-	identifier['x'] = &ft_convert_hex_lc;
-	identifier['X'] = &ft_convert_hex_uc;
+	identifier['x'] = &ft_convert_lower_hex;
+	identifier['X'] = &ft_convert_upper_hex;
 	identifier['p'] = &ft_convert_pointer;
 }
 
@@ -52,7 +52,7 @@ size_t		ft_flag_check(t_bday *flags, va_list *ap)
 	t_convert	convert;
 
 	if (flags->type == 's' && flags->l_len == 1)
-		flags->type == 'S';
+		flags->type = 'S';
 	convert = ft_identify_flag(flags->type);
 	count = convert(flags, ap);
 	return (count);
@@ -75,7 +75,7 @@ int			ft_parse_input(const char *format, va_list *ap, t_bday *flags)
 		else if (count == 2)
 		{
 			ret += write(1, format, flags->open);
-			ret += ft_process_uterm(format, flags, ap);
+			ret += ft_process_unterm(format, flags, ap);
 			if (flags->exit == 1)
 				return (ret);
 			format += (flags->open + (flags->close - flags->open) + 1);

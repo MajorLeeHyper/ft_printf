@@ -6,7 +6,7 @@
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/25 22:11:07 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/25 22:29:37 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/26 15:32:13 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*ft_float_to_string(double num, t_bday *flags)
 	index = 0;
 	num += ft_round(flags);
 	type = pf_itoa_base((uintmax_t)num, "0123456789", 10);
-	str = ft_strnew(ft_stlen(type) + flags->precision + 1);
+	str = ft_strnew(ft_strlen(type) + flags->precision + 1);
 	while (type[index])
 	{
 		str[index] = type[index];
@@ -72,7 +72,7 @@ size_t	ft_convert_float(t_bday *flags, va_list *ap)
 		num = (double)num * -1;
 		flags->negative = 1;
 	}
-	value = ft_float_to_string(number, flags);
+	value = ft_float_to_string(num, flags);
 	count += ft_print_flag(value, flags);
 	if (value != NULL)
 		free(value);

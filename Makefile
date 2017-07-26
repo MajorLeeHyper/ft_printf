@@ -6,7 +6,7 @@
 #    By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/24 13:21:38 by dnelson           #+#    #+#              #
-#    Updated: 2017/07/25 13:19:47 by dnelson          ###   ########.fr        #
+#    Updated: 2017/07/26 16:01:46 by dnelson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,11 +81,48 @@ LIBFT = ft_strlen.c \
 		ft_absolute_v.c \
 		ft_strchr_count.c \
 		ft_strchr_replace.c \
-		ft_compate_int.c
+		ft_compare_int.c
 
 SRCS = ft_printf.c \
+	   ft_convert_chars.c \
+	   ft_escape_conversion.c \
+	   ft_find_precision.c \
+	   ft_find_w_ignore_p.c \
+	   ft_find_width.c \
+	   ft_flag_checker.c \
+	   ft_flag_validate.c \
+	   ft_float_conversion.c \
+	   ft_int_len.c \
+	   ft_long_conversion.c \
+	   ft_negative.c \
+	   ft_num_conversion.c \
+	   ft_parse_precision.c \
+	   ft_parse_w_ignore_p.c \
+	   ft_parse_width.c \
+	   ft_parse_width_only.c \
+	   ft_pointer_conversion.c \
+	   ft_precision_int_value.c \
+	   ft_print_flag.c \
+	   ft_print_prefix.c \
+	   ft_print_width.c \
+	   ft_print_width_only.c \
+	   ft_putwchar.c \
+	   ft_putwstr.c \
+	   ft_revstr_intlen.c \
+	   ft_set_prefix.c \
+	   ft_set_zero_values.c \
+	   ft_skip_wild_arg_prec.c \
+	   ft_str_conversion.c \
+	   ft_str_intlen.c \
+	   ft_uint_len.c \
+	   ft_unterminated.c \
+	   ft_width_only.c \
+	   ft_wstr_conversion.c \
+	   ft_widthlen_prefix.c \
+	   ft_zero.c \
+	   pf_itoa_base.c
 
-OBJS = $(addprefix $(OBJDIR),$(SRC:.c=.o))
+OBJS = $(addprefix $(OBJDIR),$(SRCS:.c=.o))
 OBJS += $(addprefix $(OBJDIR), $(LIBFT:.c=.o))
 
 CC = gcc
@@ -99,19 +136,19 @@ SRCDIR = ./srcs/
 INCDIR = ./includes/
 OBJDIR = ./objs/
 
-all: obj libft $(NAME)
+all: $(NAME)
 
 $(NAME): $(OBJS)
 	@ar rc $(NAME) $(OBJS)
 	@echo "ft_printf Compilation Complete"
 
-obj:
+objs:
 	@mkdir -p $(OBJDIR)
 
-$(OBJDIR)%.o: $(SRCDIR)%.c | obj
-	@$(CC) $(CFLAGS) -I $(INCDIR) -o $@ -c $^
+$(OBJDIR)%.o: $(SRCDIR)%.c | objs
+	@$(CC) $(CFLAGS) -I $(INCDIR) $(LIBINC) -o $@ -c $^
 
-$(OBJDIR)%.o: $(LIBFTDIR)%.c | obj
+$(OBJDIR)%.o: $(LIBFTDIR)%.c | objs
 	@$(CC) $(CFLAGS) $(LIBINC) -o $@ -c $^
 
 clean:
