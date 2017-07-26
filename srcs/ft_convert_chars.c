@@ -6,7 +6,7 @@
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/25 12:37:32 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/25 13:18:38 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/25 21:20:02 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ size_t	ft_print_width_char(t_bday *flags)
 	return (cont);
 }
 
-//experiment with this one's if else condition
+
 size_t	ft_print_flag_char(char *value, t_bday *flags)
 {
 	size_t	count;
