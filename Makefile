@@ -6,7 +6,7 @@
 #    By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/24 13:21:38 by dnelson           #+#    #+#              #
-#    Updated: 2017/07/26 20:46:01 by dnelson          ###   ########.fr        #
+#    Updated: 2017/07/26 21:13:41 by dnelson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -143,6 +143,7 @@ $(NAME): $(OBJS)
 	@ar rc $(NAME) $(OBJS)
 	@echo "ft_printf Compilation Complete"
 
+
 objs:
 	@mkdir -p $(OBJDIR)
 
@@ -158,6 +159,7 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
+	@make -C ./libft fclean
 	@echo "ft_printf Library File Removed"
 
 re: fclean all
