@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_precision.c                                :+:      :+:    :+:   */
+/*   ft_rev_compare_int.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/25 21:05:20 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/26 20:37:42 by dnelson          ###   ########.fr       */
+/*   Created: 2017/07/26 20:45:29 by dnelson           #+#    #+#             */
+/*   Updated: 2017/07/26 20:45:37 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_find_precision(const char *format, t_bday *flags)
+int		ft_rev_compare_int(int a, int b)
 {
-	size_t	index;
-
-	index = flags->open;
-	while (index < flags->close)
-	{
-		if (format[index] == '.')
-		{
-			flags->precision_index = index;
-			flags->precision_found = 1;
-			return (1);
-		}
-		index++;
-	}
-	return (0);
+	return (a < b ? a : b);
 }

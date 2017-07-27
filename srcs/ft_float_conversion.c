@@ -6,7 +6,7 @@
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/25 22:11:07 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/26 15:32:13 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/26 20:52:35 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ size_t	ft_convert_float(t_bday *flags, va_list *ap)
 	if (flags->precision_found == 0)
 		flags->precision = 6;
 	else
-		flags->precision = ft_compare_int(500, flags->precision);
+		flags->precision = ft_rev_compare_int(flags->precision, 500);
 	num = va_arg(*ap, double);
 	if (num < 0)
 	{

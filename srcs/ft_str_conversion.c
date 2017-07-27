@@ -6,7 +6,7 @@
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/26 11:31:26 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/26 15:52:58 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/26 21:02:48 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_precision_text_value(char *str, t_bday *flags)
 	int		len;
 	char	*precision_value;
 
-	len = ft_compare_int(ft_strlen(str), flags->precision);
+	len = ft_rev_compare_int(flags->precision, ft_strlen(str));
 	precision_value = ft_strsub(str, 0, len);
 	return (precision_value);
 }
