@@ -69,7 +69,8 @@ FILENAMES = ft_strlen.c \
 			ft_absolute_v.c \
 			ft_strchr_count.c \
 			ft_strchr_replace.c \
-			ft_compare_int.c
+			ft_compare_int.c \
+			ft_itoa_base.c
 
 SRCS = $(addprefix srcs/, $(FILENAMES))
 OBJS = $(addprefix objs/, $(FILENAMES:.c=.o))
@@ -81,7 +82,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 		@ar rc $(NAME) $(OBJS)
-		@echo "Libft Compilation Complete"
+		@echo "libft Compilation Complete"
 
 objs/%.o: srcs/%.c | objs
 		@gcc $(CFLAGS) -c $^ -o $@

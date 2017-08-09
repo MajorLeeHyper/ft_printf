@@ -3,83 +3,64 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dnelson <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/02 14:38:10 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/01 21:17:52 by dnelson          ###   ########.fr       */
+/*   Created: 2017/01/28 14:35:53 by dnelson           #+#    #+#             */
+/*   Updated: 2017/08/02 15:57:42 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <strings.h>
 
-static size_t	ft_count_split(char *str, char c)
+static size_t	word_count(char *str, char c)
 {
-	size_t	i;
-	size_t	count;
-	int		space_check;
+	size_t		i;
+	size_t		words;
+	int			toggle;
 
-	count = 0;
 	i = 0;
-	space_check = 0;
+	words = 0;
+	toggle = 1;
+	while (str[i] && str[i] == c)
+		i++;
 	while (str[i])
 	{
-		if (str[i] == c)
+		if (toggle == 1 && str[i] != c)
 		{
-			if (space_check == 1)
-			{
-				count++;
-				space_check = 0;
-			}
+			toggle = 0;
+			words++;
 		}
-		else if (space_check == 0)
-			space_check = 1;
+		else if (toggle == 0 && str[i] == c)
+			toggle = 1;
 		i++;
 	}
-	if (str[i - 1] != c && i != 0)
-		count++;
-	return (count);
+	return (words + 1);
 }
 
-static char		*ft_strcpy_split(char *dest, char *src, char c)
+char			**ft_strsplit(const char *s, char c)
 {
-	size_t	i;
-
-	i = 0;
-	while (src[i] && src[i] != c)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-char			**ft_strsplit(char const *s, char c)
-{
-	char	**array;
-	char	*str;
-	size_t	i[3];
+	size_t		j;
+	size_t		k;
+	char		**array;
 
 	if (!s)
 		return (NULL);
-	i[0] = 0;
-	i[2] = 0;
-	i[1] = ft_count_split((char*)s, c);
-	if (!(array = (char**)malloc(sizeof(char*) * (i[1] + 1))))
+	k = 0;
+	if (!(array = (char**)malloc(sizeof(char*) * (word_count((char*)s, c)))))
 		return (NULL);
-	while (i[0] < i[1])
+	while (*s)
 	{
-		while (s[i[2]] == c)
-			i[2]++;
-		if (!(str = ft_strnew(ft_strlenc((char*)&s[i[2]], c))))
-			return (NULL);
-		array[i[0]] = str;
-		ft_strcpy_split(str, (char*)&s[i[2]], c);
-		while (s[i[2]] != c)
-			i[2]++;
-		i[0]++;
+		if (*s == c)
+			s++;
+		else
+		{
+			j = 0;
+			array[k] = ft_strnew(ft_strlenc((char*)s, c));
+			while (*s && *s != c)
+				array[k][j++] = *s++;
+			array[k++][j] = '\0';
+		}
 	}
-	array[i[0]] = NULL;
+	array[k] = NULL;
 	return (array);
 }

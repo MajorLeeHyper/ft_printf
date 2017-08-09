@@ -6,7 +6,7 @@
 /*   By: dnelson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 11:33:53 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/26 20:45:01 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/31 17:05:15 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,5 @@ void				ft_strchr_replace(char *str, char c, size_t start,
 		size_t end);
 int					ft_compare_int(int a, int b);
 int					ft_rev_compare_int(int a, int b);
+char				*ft_itoa_base(int value, int base);
 #endif

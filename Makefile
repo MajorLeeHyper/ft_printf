@@ -6,7 +6,7 @@
 #    By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/24 13:21:38 by dnelson           #+#    #+#              #
-#    Updated: 2017/07/26 21:13:41 by dnelson          ###   ########.fr        #
+#    Updated: 2017/08/09 11:42:24 by dnelson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -140,11 +140,13 @@ OBJDIR = ./objs/
 all: $(NAME)
 
 $(NAME): $(OBJS)
+	@echo "Compiling libft..."
+	@make -C libft/
 	@ar rc $(NAME) $(OBJS)
 	@echo "ft_printf Compilation Complete"
 
-
 objs:
+	@echo "Compiling..."
 	@mkdir -p $(OBJDIR)
 
 $(OBJDIR)%.o: $(SRCDIR)%.c | objs
@@ -155,12 +157,12 @@ $(OBJDIR)%.o: $(LIBFTDIR)%.c | objs
 
 clean:
 	@rm -rf $(OBJDIR)
-	@echo "Object Files Removed"
+	@echo "ft_printf Object Files Removed"
 
 fclean: clean
 	@rm -f $(NAME)
-	@make -C ./libft fclean
 	@echo "ft_printf Library File Removed"
+	@make -C ./libft fclean
 
 re: fclean all
 
