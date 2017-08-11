@@ -140,8 +140,8 @@ OBJDIR = ./objs/
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@echo "Compiling libft..."
-	@make -C libft/
+#	@echo "Compiling libft..."
+#	@make -C libft/
 	@ar rc $(NAME) $(OBJS)
 	@echo "ft_printf Compilation Complete"
 
